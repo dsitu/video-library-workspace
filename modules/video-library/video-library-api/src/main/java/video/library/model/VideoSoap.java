@@ -42,6 +42,7 @@ public class VideoSoap implements Serializable {
 		soapModel.setUserName(model.getUserName());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
+		soapModel.setDescription(model.getDescription());
 
 		return soapModel;
 	}
@@ -158,6 +159,14 @@ public class VideoSoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
+	public String getDescription() {
+		return _description;
+	}
+
+	public void setDescription(String description) {
+		_description = description;
+	}
+
 	private String _uuid;
 	private long _videoId;
 	private long _groupId;
@@ -166,4 +175,5 @@ public class VideoSoap implements Serializable {
 	private String _userName;
 	private Date _createDate;
 	private Date _modifiedDate;
+	private String _description;
 }

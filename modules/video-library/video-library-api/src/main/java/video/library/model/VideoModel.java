@@ -210,6 +210,21 @@ public interface VideoModel extends BaseModel<Video>, GroupedModel, ShardedModel
 	@Override
 	public void setModifiedDate(Date modifiedDate);
 
+	/**
+	 * Returns the description of this video.
+	 *
+	 * @return the description of this video
+	 */
+	@AutoEscape
+	public String getDescription();
+
+	/**
+	 * Sets the description of this video.
+	 *
+	 * @param description the description of this video
+	 */
+	public void setDescription(String description);
+
 	@Override
 	public boolean isNew();
 

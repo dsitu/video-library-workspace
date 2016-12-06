@@ -65,7 +65,7 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(17);
+		StringBundler sb = new StringBundler(19);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -83,6 +83,8 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+		sb.append(", description=");
+		sb.append(description);
 		sb.append("}");
 
 		return sb.toString();
@@ -125,6 +127,13 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 			videoImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+		if (description == null) {
+			videoImpl.setDescription(StringPool.BLANK);
+		}
+		else {
+			videoImpl.setDescription(description);
+		}
+
 		videoImpl.resetOriginalValues();
 
 		return videoImpl;
@@ -144,6 +153,7 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+		description = objectInput.readUTF();
 	}
 
 	@Override
@@ -173,6 +183,13 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
+		if (description == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(description);
+		}
 	}
 
 	public String uuid;
@@ -183,4 +200,5 @@ public class VideoCacheModel implements CacheModel<Video>, Externalizable {
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+	public String description;
 }

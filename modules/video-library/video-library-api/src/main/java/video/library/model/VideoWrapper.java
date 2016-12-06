@@ -67,6 +67,7 @@ public class VideoWrapper implements Video, ModelWrapper<Video> {
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("description", getDescription());
 
 		return attributes;
 	}
@@ -120,6 +121,12 @@ public class VideoWrapper implements Video, ModelWrapper<Video> {
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
 		}
+
+		String description = (String)attributes.get("description");
+
+		if (description != null) {
+			setDescription(description);
+		}
 	}
 
 	@Override
@@ -165,6 +172,16 @@ public class VideoWrapper implements Video, ModelWrapper<Video> {
 	@Override
 	public java.lang.Object clone() {
 		return new VideoWrapper((Video)_video.clone());
+	}
+
+	/**
+	* Returns the description of this video.
+	*
+	* @return the description of this video
+	*/
+	@Override
+	public java.lang.String getDescription() {
+		return _video.getDescription();
 	}
 
 	/**
@@ -315,6 +332,16 @@ public class VideoWrapper implements Video, ModelWrapper<Video> {
 	@Override
 	public void setCreateDate(Date createDate) {
 		_video.setCreateDate(createDate);
+	}
+
+	/**
+	* Sets the description of this video.
+	*
+	* @param description the description of this video
+	*/
+	@Override
+	public void setDescription(java.lang.String description) {
+		_video.setDescription(description);
 	}
 
 	@Override

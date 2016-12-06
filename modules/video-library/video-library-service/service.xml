@@ -22,6 +22,7 @@
 		<column name="modifiedDate" type="Date" />
 
 		<!-- Other fields -->
+		<column name="description" type="String" />
 
 		<!-- Order -->
 
