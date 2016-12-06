@@ -1,0 +1,9 @@
+Bundle-Name: video-library-api
+Bundle-SymbolicName: video.library.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	video.library.exception,\
+	video.library.model,\
+	video.library.service,\
+	video.library.service.persistence
+-includeresource: META-INF/service.xml=../video-library-service/service.xml
