@@ -1831,6 +1831,7 @@ public class VideoPersistenceImpl extends BasePersistenceImpl<Video>
 		videoImpl.setCreateDate(video.getCreateDate());
 		videoImpl.setModifiedDate(video.getModifiedDate());
 		videoImpl.setDescription(video.getDescription());
+		videoImpl.setTitle(video.getTitle());
 
 		return videoImpl;
 	}

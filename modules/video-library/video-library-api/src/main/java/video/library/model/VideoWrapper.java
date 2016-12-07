@@ -68,6 +68,7 @@ public class VideoWrapper implements Video, ModelWrapper<Video> {
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("description", getDescription());
+		attributes.put("title", getTitle());
 
 		return attributes;
 	}
@@ -127,6 +128,12 @@ public class VideoWrapper implements Video, ModelWrapper<Video> {
 		if (description != null) {
 			setDescription(description);
 		}
+
+		String title = (String)attributes.get("title");
+
+		if (title != null) {
+			setTitle(title);
+		}
 	}
 
 	@Override
@@ -182,6 +189,16 @@ public class VideoWrapper implements Video, ModelWrapper<Video> {
 	@Override
 	public java.lang.String getDescription() {
 		return _video.getDescription();
+	}
+
+	/**
+	* Returns the title of this video.
+	*
+	* @return the title of this video
+	*/
+	@Override
+	public java.lang.String getTitle() {
+		return _video.getTitle();
 	}
 
 	/**
@@ -398,6 +415,16 @@ public class VideoWrapper implements Video, ModelWrapper<Video> {
 	@Override
 	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
 		_video.setPrimaryKeyObj(primaryKeyObj);
+	}
+
+	/**
+	* Sets the title of this video.
+	*
+	* @param title the title of this video
+	*/
+	@Override
+	public void setTitle(java.lang.String title) {
+		_video.setTitle(title);
 	}
 
 	/**
