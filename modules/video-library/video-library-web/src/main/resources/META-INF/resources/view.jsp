@@ -6,11 +6,11 @@
 	<portlet:param name="redirect" value="${currentURL}" />
 </portlet:renderURL>
 
-<c:if test="${hasAddVideoPermission}">
-	<liferay-frontend:add-menu>
-		<liferay-frontend:add-menu-item title="Video"
-			url="${addVideoURL}" />
-	</liferay-frontend:add-menu>
-</c:if>
+<liferay-frontend:add-menu>
+	<liferay-frontend:add-menu-item title="Video"
+		url="${addVideoURL}" />
+</liferay-frontend:add-menu>
+
+<a href="${addVideoURL}"><p>Add Video</p></a>
 
 <p>Paginated videos</p>
