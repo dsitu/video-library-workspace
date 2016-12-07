@@ -21,7 +21,7 @@ import video.library.service.VideoService;
 	immediate = true,
 	property = {
 		"javax.portlet.name=" + VideoLibraryPortletKeys.PORTLET_NAME,
-		"mvc.command.name=/video-library/video/edit"
+		"mvc.command.name=/video-library/video/add"
 	},
 	service = MVCActionCommand.class)
 public class AddVideoMVCActionCommand extends BaseMVCActionCommand{
