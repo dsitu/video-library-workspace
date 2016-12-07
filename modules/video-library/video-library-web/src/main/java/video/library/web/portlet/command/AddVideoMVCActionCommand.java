@@ -5,16 +5,17 @@ import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextFactory;
 
-import video.library.model.Video;
-import video.library.web.portlet.VideoLibraryPortletKeys;
-import video.library.web.portlet.VideoLibraryPortletUtil;
-import video.library.VideoLocalService;
-import video.library.VideoService;
-
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+import video.library.model.Video;
+import video.library.web.portlet.VideoLibraryPortletKeys;
+import video.library.web.portlet.VideoLibraryPortletUtil;
+import video.library.service.VideoLocalService;
+import video.library.service.VideoService;
 
 @Component(
 	immediate = true,
@@ -29,7 +30,7 @@ public class AddVideoMVCActionCommand extends BaseMVCActionCommand{
 	protected void doProcessAction(
 		ActionRequest actionRequest, ActionResponse actionResponse) 
 	throws Exception {
-		Video video = VideoLocalService.createVideo(0);
+		Video video = _videoLocalService.createVideo(0);
 
 		ServiceContext serviceContext =
 			ServiceContextFactory.getInstance(actionRequest);

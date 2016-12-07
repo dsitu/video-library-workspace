@@ -1,4 +1,4 @@
-package com.liferay.video.library.web.portlet;
+package video.library.web.portlet;
 
 public class VideoLibraryPortletKeys {
 
