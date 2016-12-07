@@ -80,7 +80,8 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 			{ "userName", Types.VARCHAR },
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
-			{ "description", Types.VARCHAR }
+			{ "description", Types.VARCHAR },
+			{ "title", Types.VARCHAR }
 		};
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP = new HashMap<String, Integer>();
 
@@ -94,9 +95,10 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("description", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("title", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table VL_Video (uuid_ VARCHAR(75) null,videoId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,description VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table VL_Video (uuid_ VARCHAR(75) null,videoId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,description VARCHAR(75) null,title VARCHAR(500) null)";
 	public static final String TABLE_SQL_DROP = "drop table VL_Video";
 	public static final String ORDER_BY_JPQL = " ORDER BY video.videoId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY VL_Video.videoId ASC";
@@ -139,6 +141,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
 		model.setDescription(soapModel.getDescription());
+		model.setTitle(soapModel.getTitle());
 
 		return model;
 	}
@@ -212,6 +215,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("description", getDescription());
+		attributes.put("title", getTitle());
 
 		attributes.put("entityCacheEnabled", isEntityCacheEnabled());
 		attributes.put("finderCacheEnabled", isFinderCacheEnabled());
@@ -273,6 +277,12 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 
 		if (description != null) {
 			setDescription(description);
+		}
+
+		String title = (String)attributes.get("title");
+
+		if (title != null) {
+			setTitle(title);
 		}
 	}
 
@@ -444,6 +454,22 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 		_description = description;
 	}
 
+	@JSON
+	@Override
+	public String getTitle() {
+		if (_title == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _title;
+		}
+	}
+
+	@Override
+	public void setTitle(String title) {
+		_title = title;
+	}
+
 	@Override
 	public StagedModelType getStagedModelType() {
 		return new StagedModelType(PortalUtil.getClassNameId(
@@ -490,6 +516,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 		videoImpl.setCreateDate(getCreateDate());
 		videoImpl.setModifiedDate(getModifiedDate());
 		videoImpl.setDescription(getDescription());
+		videoImpl.setTitle(getTitle());
 
 		videoImpl.resetOriginalValues();
 
@@ -621,12 +648,20 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 			videoCacheModel.description = null;
 		}
 
+		videoCacheModel.title = getTitle();
+
+		String title = videoCacheModel.title;
+
+		if ((title != null) && (title.length() == 0)) {
+			videoCacheModel.title = null;
+		}
+
 		return videoCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(19);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -646,6 +681,8 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 		sb.append(getModifiedDate());
 		sb.append(", description=");
 		sb.append(getDescription());
+		sb.append(", title=");
+		sb.append(getTitle());
 		sb.append("}");
 
 		return sb.toString();
@@ -653,7 +690,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(34);
 
 		sb.append("<model><model-name>");
 		sb.append("video.library.model.Video");
@@ -695,6 +732,10 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 			"<column><column-name>description</column-name><column-value><![CDATA[");
 		sb.append(getDescription());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>title</column-name><column-value><![CDATA[");
+		sb.append(getTitle());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -720,6 +761,7 @@ public class VideoModelImpl extends BaseModelImpl<Video> implements VideoModel {
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
 	private String _description;
+	private String _title;
 	private long _columnBitmask;
 	private Video _escapedModel;
 }

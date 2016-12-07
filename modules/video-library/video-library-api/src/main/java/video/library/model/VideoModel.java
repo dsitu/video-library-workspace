@@ -225,6 +225,21 @@ public interface VideoModel extends BaseModel<Video>, GroupedModel, ShardedModel
 	 */
 	public void setDescription(String description);
 
+	/**
+	 * Returns the title of this video.
+	 *
+	 * @return the title of this video
+	 */
+	@AutoEscape
+	public String getTitle();
+
+	/**
+	 * Sets the title of this video.
+	 *
+	 * @param title the title of this video
+	 */
+	public void setTitle(String title);
+
 	@Override
 	public boolean isNew();
 

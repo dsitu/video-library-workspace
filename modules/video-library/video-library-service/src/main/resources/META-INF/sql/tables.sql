@@ -7,5 +7,6 @@ create table VL_Video (
 	userName VARCHAR(75) null,
 	createDate DATE null,
 	modifiedDate DATE null,
-	description VARCHAR(75) null
+	description VARCHAR(75) null,
+	title VARCHAR(500) null
 );
