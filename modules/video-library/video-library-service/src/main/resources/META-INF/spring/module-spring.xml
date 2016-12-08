@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<bean class="video.library.service.impl.VideoLocalServiceImpl" id="video.library.service.VideoLocalService" />
-	<bean class="video.library.service.impl.VideoServiceImpl" id="video.library.service.VideoService" />
-	<bean class="video.library.service.persistence.impl.VideoPersistenceImpl" id="video.library.service.persistence.VideoPersistence" parent="basePersistence" />
+	<bean class="com.liferay.video.library.service.impl.VideoLocalServiceImpl" id="com.liferay.video.library.service.VideoLocalService" />
+	<bean class="com.liferay.video.library.service.impl.VideoServiceImpl" id="com.liferay.video.library.service.VideoService" />
+	<bean class="com.liferay.video.library.service.persistence.impl.VideoPersistenceImpl" id="com.liferay.video.library.service.persistence.VideoPersistence" parent="basePersistence" />
 </beans>

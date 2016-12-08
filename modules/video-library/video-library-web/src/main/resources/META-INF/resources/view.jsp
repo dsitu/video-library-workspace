@@ -27,7 +27,7 @@
 		<liferay-ui:search-container emptyResultsMessage="There are no videos uploaded.">
 			<liferay-ui:search-container-results results="${Videos}" />
 			<liferay-ui:search-container-row
-				className="video.library.model.Video"
+				className="com.liferay.video.library.model.Video"
 				modelVar="video">
 
 				<portlet:renderURL var="viewSubmissionsURL">

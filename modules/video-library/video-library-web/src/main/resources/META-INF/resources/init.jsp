@@ -21,7 +21,7 @@
 
 <%@page import="com.liferay.portal.kernel.security.permission.ActionKeys"%>
 
-<%@page import="video.library.model.Video"%>
+<%@page import="com.liferay.video.library.model.Video"%>
 
 
 <portlet:defineObjects />

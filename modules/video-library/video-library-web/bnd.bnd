@@ -1,2 +1,3 @@
-Bundle-SymbolicName: video.library.web
+BundleName: video-library-web
+Bundle-SymbolicName: com.liferay.video.library.web
 Bundle-Version: 1.0.0

@@ -1,9 +1,9 @@
-Bundle-Name: video-library-api
-Bundle-SymbolicName: video.library.api
+BundleName: video-library-api
+Bundle-SymbolicName: com.liferay.video.library.api
 Bundle-Version: 1.0.0
 Export-Package:\
-	video.library.exception,\
-	video.library.model,\
-	video.library.service,\
-	video.library.service.persistence
+	com.liferay.video.library.exception,\
+	com.liferay.video.library.model,\
+	com.liferay.video.library.service,\
+	com.liferay.video.library.service.persistence
 -includeresource: META-INF/service.xml=../video-library-service/service.xml

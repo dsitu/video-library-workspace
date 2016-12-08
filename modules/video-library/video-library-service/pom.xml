@@ -59,7 +59,7 @@
 					<implDirName>src/main/java</implDirName>
 					<modelHintsFileName>src/main/resources/META-INF/portlet-model-hints.xml</modelHintsFileName>
 					<osgiModule>true</osgiModule>
-					<propsUtil>video.library.service.util.ServiceProps</propsUtil>
+					<propsUtil>ServiceProps</propsUtil>
 					<resourcesDirName>src/main/resources</resourcesDirName>
 					<springFileName>src/main/resources/META-INF/spring/module-spring.xml</springFileName>
 					<sqlDirName>src/main/resources/META-INF/sql</sqlDirName>

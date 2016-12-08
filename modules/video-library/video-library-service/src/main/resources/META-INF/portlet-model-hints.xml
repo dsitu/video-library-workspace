@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <model-hints>
-	<model name="video.library.model.Video">
+	<model name="com.liferay.video.library.model.Video">
 		<field name="uuid" type="String" />
 		<field name="videoId" type="long" />
 		<field name="groupId" type="long" />
