@@ -1,8 +1,8 @@
 package video.library.web.portlet.command;
 
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
-import com.liferay.portal.kernel.service.ServiceContext;
-import com.liferay.portal.kernel.service.ServiceContextFactory;
+import com.liferay.portal.kernel.util.ParamUtil;
 
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
@@ -10,12 +10,11 @@ import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
 
 import video.library.model.Video;
-import video.library.web.portlet.VideoLibraryPortletKeys;
-import video.library.web.portlet.VideoLibraryPortletUtil;
 import video.library.service.VideoLocalService;
-import video.library.service.VideoService;
+import video.library.web.portlet.VideoLibraryPortletKeys;
 
 @Component(
 	immediate = true,
@@ -31,7 +30,29 @@ public class EditVideoMVCRenderCommand implements MVCRenderCommand {
 		RenderRequest renderRequest, RenderResponse renderResponse)
 			throws PortletException {
 
+		Video video = null;
+
+		long videoId = ParamUtil.getLong(
+			renderRequest, "videoId", 0);
+
+		String title = "Create Video";
+
+		if (videoId > 0) {
+			try {
+				video =
+					_videoLocalService.getVideo(videoId);
+
+				title = "Edit Video";
+			}
+			catch (PortalException e) {
+				e.printStackTrace();
+			}
+		}
+
 		return "/video/edit_video.jsp";
 	}
+
+	@Reference(cardinality = ReferenceCardinality.MANDATORY)
+	private VideoLocalService _videoLocalService;
 
 }

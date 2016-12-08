@@ -16,6 +16,8 @@
 	portletDisplay.setURLBack(redirect);
 %>
 
+<p>Edit Video Page</p>
+
 
 <c:choose>
 	<c:when test="${not empty video}">
