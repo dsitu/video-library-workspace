@@ -29,7 +29,6 @@ public class EditVideoMVCRenderCommand implements MVCRenderCommand {
 	public String render(
 		RenderRequest renderRequest, RenderResponse renderResponse)
 			throws PortletException {
-System.out.println("ASL:FKJFGL:SKFJSL:KDFJ");
 		Video video = null;
 
 		long videoId = ParamUtil.getLong(

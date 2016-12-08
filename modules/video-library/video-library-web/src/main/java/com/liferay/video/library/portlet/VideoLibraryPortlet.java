@@ -25,6 +25,7 @@ import com.liferay.video.library.service.VideoLocalService;
 		"javax.portlet.display-name=Video Library Portlet",
 		"javax.portlet.init-param.template-path=/",
 		"javax.portlet.init-param.view-template=/view.jsp",
+		"javax.portlet.name=" + VideoLibraryPortletKeys.PORTLET_NAME,
 		"javax.portlet.resource-bundle=content.Language",
 		"com.liferay.portlet.add-default-resource=true",
 		"javax.portlet.security-role-ref=power-user,user"
