@@ -70,9 +70,8 @@
 				</div>
 				<aui:input name="description" type="hidden" />
 
-				<aui:input name="dueDate">
-					<aui:validator name="required" />
-				</aui:input>
+				<lable for="file"><liferay-ui:message key="Video" /></lable>
+				<aui:input name="file" type="file" />
 			</aui:fieldset>
 		</aui:fieldset-group>
 		<aui:button cssClass="btn-lg" type="submit" />
