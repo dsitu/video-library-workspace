@@ -1,0 +1,26 @@
+apply plugin: 'kotlin'
+
+buildscript {
+	ext.kotlin_version = '1.0.4'
+
+	repositories {
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+	}
+}
+
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
+	compileOnly group: "org.osgi", name: "org.osgi.compendium", version: "5.0.0"
+	compileOnly group: "net.bramp.ffmpeg", name: "ffmpeg", version: "0.6.1"
+	compileOnly group: "biz.aQute.bnd", name: "biz.aQute.bndlib", version: "3.1.0"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
+	compileOnly "org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlin_version"
+}

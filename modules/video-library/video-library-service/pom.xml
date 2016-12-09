@@ -10,7 +10,7 @@
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<parent>
-		<groupId>video.library</groupId>
+		<groupId>com.liferay.video.library</groupId>
 		<artifactId>video-library</artifactId>
 		<version>1.0.0</version>
 	</parent>

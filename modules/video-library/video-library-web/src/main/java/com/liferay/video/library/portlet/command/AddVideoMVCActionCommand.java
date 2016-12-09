@@ -8,6 +8,7 @@ import com.liferay.portal.kernel.service.ServiceContextFactory;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 
+import com.liferay.transcoder.api.TranscoderService;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -16,6 +17,8 @@ import com.liferay.video.library.portlet.VideoLibraryPortletKeys;
 import com.liferay.video.library.portlet.VideoLibraryPortletUtil;
 import com.liferay.video.library.service.VideoLocalService;
 import com.liferay.video.library.service.VideoService;
+
+import java.io.File;
 
 @Component(
 	immediate = true,
@@ -36,6 +39,14 @@ public class AddVideoMVCActionCommand extends BaseMVCActionCommand{
 			ServiceContextFactory.getInstance(actionRequest);
 
 		VideoLibraryPortletUtil.assembleVideo(actionRequest, video);
+
+		File inputFile = new File(
+			"/Users/vishalreddy/Movies/ga1-patch-install-tutorial.mp4");
+
+		File outputFile = new File(
+			"/Users/vishalreddy/Movies/ga1-patch-install-tutorial-out.mp4");
+
+		_transcoderService.transcodeVideo(inputFile, outputFile);
 	}
 
 	@Reference
@@ -43,5 +54,8 @@ public class AddVideoMVCActionCommand extends BaseMVCActionCommand{
 	
 	@Reference
 	protected VideoLocalService _videoLocalService;
+
+	@Reference
+	protected TranscoderService _transcoderService;
 
 }
