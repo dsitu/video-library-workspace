@@ -41,10 +41,10 @@ public class AddVideoMVCActionCommand extends BaseMVCActionCommand{
 		VideoLibraryPortletUtil.assembleVideo(actionRequest, video);
 
 		File inputFile = new File(
-			"/Users/vishalreddy/Movies/ga1-patch-install-tutorial.mp4");
+			"/Users/vishalreddy/Movies/cs696_08_25_15.mov.mp4");
 
 		File outputFile = new File(
-			"/Users/vishalreddy/Movies/ga1-patch-install-tutorial-out.mp4");
+			"/Users/vishalreddy/Movies/cs696_08_25_15.mov-out.mp4");
 
 		_transcoderService.transcodeVideo(inputFile, outputFile);
 	}

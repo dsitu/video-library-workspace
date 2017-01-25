@@ -2,3 +2,4 @@ Bundle-Name: transcoder-api
 Bundle-SymbolicName: com.liferay.transcoder.api
 Bundle-Version: 1.0.0
 Export-Package: com.liferay.transcoder.api
+Import-Package: com.liferay.portal.kernel.annotation;version="[6.3,7)"
